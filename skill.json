@@ -1,0 +1,30 @@
+{
+  "name": "genpark-agentic-multimodal-product-return-fraud-detector-skill",
+  "version": "1.0.0",
+  "description": "AI Multimodal E-Commerce Return Fraud & Wardrobing Abuse Detector. Correlates return velocity, carrier scan discrepancies, product tag tampering indicators, and customer lifetime return ratios to compute a risk index and enforce restocking fees or dispute escalation.",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.llinkedin.com/company/92955550",
+  "tools": [
+    {
+      "name": "evaluate_return_request",
+      "description": "Evaluate return request for wardrobing, empty box fraud, and serial refund abuse.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "return_claim": {
+            "type": "object",
+            "description": "Claim details: order_id, claimed_reason, item_price_usd, carrier_weight_kg, expected_weight_kg, days_held."
+          },
+          "customer_history": {
+            "type": "object",
+            "description": "Total orders, past returns count, past fraud disputes."
+          }
+        },
+        "required": [
+          "return_claim",
+          "customer_history"
+        ]
+      }
+    }
+  ]
+}
